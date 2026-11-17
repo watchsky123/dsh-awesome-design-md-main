@@ -30,6 +30,28 @@ git clone https://github.com/watchsky123/dsh-awesome-design-md-main.git <你的�
 
 > 斜杠命令名取自 SKILL.md frontmatter 的 `name`,必须是 kebab-case,且 `user-invocable` 未设为 false。仓库名叫 `dsh-awesome-design-md-main`,但技能命令是 `/awedesign`——**命令名与仓库名不必一致**,改名只需改 `name:` 与技能目录名。
 
+## 在「添加文件或调用指令」菜单里出现(需要插件)
+
+技能本身只会出现在**输入 `/` 时的建议列表**里。输入栏的 `+`(「添加文件或调用指令」)按钮打开的是**命令源**
+(`inputTriggers.toggleSource("command", …)`),而技能注册的是另一个 source(`{trigger:"/", name:"skill", order:2}`)。
+两者共用 `/` 触发器,但 `+` 菜单只列命令源——**纯技能永远不会出现在 `+` 菜单里**。
+
+要让 `/awedesign` 出现在 `+` 菜单,必须注册一个宿主命令。`plugin-dsh/` 就是这个最小插件(形态与 hwforge 的 `/hwforge` 一致):
+
+```bash
+# 在 profile 里安装本仓库的插件目录
+# package.json: "dsh-awedesign": "file:<仓库路径>/plugin-dsh"
+#              dsh.profile.bundles 追加 "dsh-awedesign"
+pnpm install
+```
+
+插件要点(少一条就"菜单里没有"):
+
+- 模块导出 `inject = ['commands']`:不声明时 `apply` 可能先于命令注册表运行,`ctx.get('commands')` 返回 undefined,命令根本不会注册
+- `register({ name, description, input: { hint }, handler })`——`input` 是 `{hint: string}`,不是 `{placeholder}`
+- handler 把需求以 `/awedesign <需求>` 重新 `followup` 投递:宿主的 pre-step 边界(`dsh-tool-skill`)会扫描 `source.kind === 'user'` 消息里的 `/技能名`,据此把技能正文注入该步骤
+
+
 ## 使用示例
 
 对话里直接说:

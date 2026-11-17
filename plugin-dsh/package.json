@@ -1,0 +1,26 @@
+{
+  "name": "dsh-awedesign",
+  "version": "0.1.0",
+  "description": "DSH 斜杠命令 /awedesign：在输入栏「添加文件或调用指令」里直接调用 awedesign 技能",
+  "type": "module",
+  "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "cordis.patch.yml"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "*",
+    "@deepseek-ai/dsh-llm": "*"
+  },
+  "license": "MIT"
+}

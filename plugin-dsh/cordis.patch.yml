@@ -1,0 +1,8 @@
+# Bundle layer contributed by dsh-awedesign: one plugin row, no config.
+#
+# `name` must equal the package name: the loader resolves it from the profile's
+# node_modules, and a mismatch is reported as "plugin not found" rather than as
+# a naming error.
+- insert:
+    - id: awedesign
+      name: dsh-awedesign
