@@ -24,7 +24,11 @@ git clone https://github.com/watchsky123/dsh-awesome-design-md-main.git <你的�
 
 或手动复制 `SKILL.md` 与 `design-md/` 到 `<工作区>/.dsh/skills/awesome-design-md/`。
 
-安装后技能即时生效(无需重启),会出现在对话输入栏的「添加文件或调用指令」菜单中,也可用 `/` 斜杠方式调用。
+安装后技能即时生效(无需重启),会出现在对话输入栏的「添加文件或调用指令」菜单中。
+
+在输入栏键入 `/` 就能从建议列表里选中它,或直接键入 **`/awesome-design-md`** 空格加需求发送——宿主的 pre-step 边界会把 SKILL.md 正文内联注入该轮,无需模型再调用 `skill` 工具。
+
+> 斜杠命令名取自 SKILL.md frontmatter 的 `name`,必须是 kebab-case,且 `user-invocable` 未设为 false。想换个短名(如 `/awedesign`)就改 `name:` 与技能目录名——两者都不必与仓库名一致。
 
 ## 使用示例
 
