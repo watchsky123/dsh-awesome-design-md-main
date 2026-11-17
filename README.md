@@ -19,16 +19,16 @@ AI 生成 UI 时把这些 token 当作唯一事实来源,而不是凭"印象"模
 把本仓库整体克隆为工作区技能目录:
 
 ```bash
-git clone https://github.com/watchsky123/dsh-awesome-design-md-main.git <你的工作区>/.dsh/skills/awesome-design-md
+git clone https://github.com/watchsky123/dsh-awesome-design-md-main.git <你的工作区>/.dsh/skills/awedesign
 ```
 
-或手动复制 `SKILL.md` 与 `design-md/` 到 `<工作区>/.dsh/skills/awesome-design-md/`。
+或手动复制 `SKILL.md` 与 `design-md/` 到 `<工作区>/.dsh/skills/awedesign/`。
 
 安装后技能即时生效(无需重启),会出现在对话输入栏的「添加文件或调用指令」菜单中。
 
-在输入栏键入 `/` 就能从建议列表里选中它,或直接键入 **`/awesome-design-md`** 空格加需求发送——宿主的 pre-step 边界会把 SKILL.md 正文内联注入该轮,无需模型再调用 `skill` 工具。
+在输入栏键入 `/` 就能从建议列表里选中它,或直接键入 **`/awedesign`** 空格加需求发送——宿主的 pre-step 边界会把 SKILL.md 正文内联注入该轮,无需模型再调用 `skill` 工具。
 
-> 斜杠命令名取自 SKILL.md frontmatter 的 `name`,必须是 kebab-case,且 `user-invocable` 未设为 false。想换个短名(如 `/awedesign`)就改 `name:` 与技能目录名——两者都不必与仓库名一致。
+> 斜杠命令名取自 SKILL.md frontmatter 的 `name`,必须是 kebab-case,且 `user-invocable` 未设为 false。仓库名叫 `dsh-awesome-design-md-main`,但技能命令是 `/awedesign`——**命令名与仓库名不必一致**,改名只需改 `name:` 与技能目录名。
 
 ## 使用示例
 

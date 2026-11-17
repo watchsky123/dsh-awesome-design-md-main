@@ -1,5 +1,5 @@
 ---
-name: awesome-design-md
+name: awedesign
 description: Use when the user wants UI, web pages, components, or posters to look like a specific brand or design language — e.g. "做成 Apple/Linear/Stripe 的风格", "make it look like Notion", "用 Stripe 风格写个落地页", or any request naming a famous product's visual style. Contains 84 analyzed brand design systems (Apple, Linear, Vercel, Stripe, Notion, Notion-like SaaS, Spotify, Nike, BMW, Ferrari, Slack, Figma, Supabase, retro 90s web…) as DESIGN.md documents with real color tokens, typography scales, component styles, layout rules and do/don'ts.
 ---
 
